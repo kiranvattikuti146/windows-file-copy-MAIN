@@ -1,0 +1,22 @@
+name: Z-Test-Call WindowsMachineFileCopy_731004d4-1d66-4f70-8c05-638018b22210 Copy Files to Dev Machine
+
+on:
+  push:
+    branches: [none] #main, feature/dk*
+  workflow_dispatch:
+
+jobs:
+  call-reusable-workflow:
+    uses: ./.github/workflows/z-Test-template_WindowsMachineFileCopy_731004d4-1d66-4f70-8c05-638018b22210.yml
+    with:
+      SourcePath: 'C:/sourcepath'
+      EnvironmentName: 'Production'
+      TargetPath: 'C:/targetpath'
+      CleanTargetBeforeCopy: false
+      CopyFilesInParallel: true
+      AdditionalArguments: '-Verbose'
+      ResourceFilteringMethod: 'machineNames'
+      MachineNames: 'Machine1,Machine2'
+    secrets:
+      AdminUserName: ${{ secrets.ADMIN_USERNAME }}
+      AdminPassword: ${{ secrets.ADMIN_PASSWORD }}
