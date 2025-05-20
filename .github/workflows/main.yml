@@ -7,7 +7,7 @@ on:
 
 jobs:
   call-reusable-workflow:
-    uses: ./.github/workflows/z-Test-template_WindowsMachineFileCopy_731004d4-1d66-4f70-8c05-638018b22210.yml
+    uses: kiranvattikuti146/windows-file-copy-reusable/.github/workflows/reusable.yml@main
     with:
       SourcePath: 'C:/sourcepath'
       EnvironmentName: 'Production'
